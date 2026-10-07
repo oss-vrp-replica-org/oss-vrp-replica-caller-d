@@ -1,0 +1,14 @@
+name: 'Caller D - cross-owner call of the replica scan'
+on:
+  pull_request:
+permissions: {}
+jobs:
+  scan:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    uses: ooriime/oss-vrp-replica-workflows/.github/workflows/github_actions_scan.yml@main
+    with:
+      wif_provider: 'projects/000000000000/locations/global/workloadIdentityPools/replica-fake-pool/providers/replica-fake-provider'
+      zizmor_result_bucket: 'replica-fake-results-7165'
+      zizmor_enforce: 'false'
